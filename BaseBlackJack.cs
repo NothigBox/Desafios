@@ -68,8 +68,11 @@ namespace BlackJackMultijugador
                 else if (c2 == "A")
                 {
                     if (t + 11 > 21) t += 1;
-                    else t += 11;
-                    tieneAs++;
+                    else 
+                    {
+                        t += 11;
+                        tieneAs++;
+                    }
                 }
                 else t += int.Parse(c2);
 
