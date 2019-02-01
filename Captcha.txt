@@ -1,0 +1,47 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+       Console.WriteLine("Captcha");
+
+            Random r = new Random();
+            
+            int a = 0,b=0,s = 0;
+
+            int cont = 0;
+            bool soluciona3 = false;
+
+            while(!soluciona3 && cont<=2)
+            {
+
+              a = r.Next(1,11);
+              b = r.Next(1,11);
+
+            Console.WriteLine("\n\tX + {0} = {1}",a,b);
+            Console.Write("Solucione la ecuación:");
+            try
+            {
+              s = int.Parse(Console.ReadLine());
+              if(s != b-a)
+              {
+                Console.WriteLine("Acceso denegado\n\n\tRe-Captcha");
+                cont++;
+                if(cont >=3)
+                {
+                  Console.WriteLine("Zorro, no te lo lleves");
+                  break;
+                }
+              } 
+              else
+              {
+                Console.WriteLine("¡Acceso concedido!");
+                soluciona3 = true;
+              }
+            }
+            catch
+            {
+              Console.WriteLine("Ingrese un valor válido\n\n\tRe-Captcha");
+            }
+            }
+  }
+}
